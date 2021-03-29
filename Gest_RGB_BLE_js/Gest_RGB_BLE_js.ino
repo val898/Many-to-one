@@ -79,7 +79,7 @@ void setup() {
     Serial.println("Error initializing APDS9960 sensor!");
   }
 }
-
+  
 //---------------------------------------------------------
 void loop() {
   // put your main code here, to run repeatedly:
