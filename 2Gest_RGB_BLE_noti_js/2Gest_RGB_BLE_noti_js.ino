@@ -54,7 +54,6 @@ void setup() {
 
   // add the characteristics to the service
   gestureService.addCharacteristic(gesCharacteristic);
-//  gestureService.addCharacteristic(RGBCharacteristic);
 
   // add the service
   BLE.addService(gestureService);
@@ -65,14 +64,6 @@ void setup() {
   BLE.advertise();
 
   Serial.println("Bluetooth device active, waiting for connections...");
-
-  //  Gesture sensor
-  // for setGestureSensitivity(..) a value between 1 and 100 is required.
-  // Higher values makes the gesture recognition more sensible but less accurate
-  // (a wrong gesture may be detected). Lower values makes the gesture recognition
-  // more accurate but less sensible (some gestures may be missed).
-  // Default is 80
-  //APDS.setGestureSensitivity(80);
 
   if (!APDS.begin()) {
     Serial.println("Error initializing APDS9960 sensor!");
