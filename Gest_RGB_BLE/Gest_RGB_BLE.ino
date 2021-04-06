@@ -27,7 +27,6 @@ BLEService gestureService("52c0fb16-8ced-11eb-8dcd-0242ac130003"); // BLE gestur
 
 // BLE Gesture sensor Characteristic - custom 128-bit UUID, read by central
 BLEByteCharacteristic gesCharacteristic("52c0fb17-8ced-11eb-8dcd-0242ac130003", BLERead);
-//BLEByteCharacteristic RGBCharacteristic("52c0fb18-8ced-11eb-8dcd-0242ac130003", BLENotify);
 
 //---------------------------------------------------------
 void setup() {
@@ -42,7 +41,7 @@ void setup() {
   while (!Serial);
 
 
-// BLE conenction
+  // BLE conenction
   if (!BLE.begin()) {
     Serial.println("starting BLE failed!");
     while (1);
@@ -55,7 +54,6 @@ void setup() {
 
   // add the characteristics to the service
   gestureService.addCharacteristic(gesCharacteristic);
-//  gestureService.addCharacteristic(RGBCharacteristic);
 
   // add the service
   BLE.addService(gestureService);
@@ -68,13 +66,6 @@ void setup() {
   Serial.println("Bluetooth device active, waiting for connections...");
 
   //  Gesture sensor
-  // for setGestureSensitivity(..) a value between 1 and 100 is required.
-  // Higher values makes the gesture recognition more sensible but less accurate
-  // (a wrong gesture may be detected). Lower values makes the gesture recognition
-  // more accurate but less sensible (some gestures may be missed).
-  // Default is 80
-  //APDS.setGestureSensitivity(80);
-
   if (!APDS.begin()) {
     Serial.println("Error initializing APDS9960 sensor!");
   }
@@ -96,7 +87,7 @@ void loop() {
 
     Serial.println("Detecting gestures ...");
 
-//Sensor code
+    //Sensor code
     // while the central is still connected to peripheral:
     while (central.connected()) {
       if (APDS.gestureAvailable()) {
