@@ -28,8 +28,6 @@ void setup() {
   pinMode(RED, OUTPUT);
   pinMode(BLUE, OUTPUT);
   pinMode(GREEN, OUTPUT);
-  pinMode(LED_PWR, OUTPUT);
-
 
   Serial.begin(9600);
   while (!Serial);
@@ -37,13 +35,6 @@ void setup() {
   if (!APDS.begin()) {
     Serial.println("Error initializing APDS9960 sensor!");
   }
-
-  // for setGestureSensitivity(..) a value between 1 and 100 is required.
-  // Higher values makes the gesture recognition more sensible but less accurate
-  // (a wrong gesture may be detected). Lower values makes the gesture recognition
-  // more accurate but less sensible (some gestures may be missed).
-  // Default is 80
-  //APDS.setGestureSensitivity(80);
 
   Serial.println("Detecting gestures ...");
 }
@@ -61,8 +52,6 @@ void loop() {
         digitalWrite(RED, HIGH);
         digitalWrite(BLUE, LOW);
         digitalWrite(GREEN, LOW);
-//        delay(3000);
-//        digitalWrite(RED, LOW);
         break;
 
       case GESTURE_DOWN:
@@ -70,8 +59,6 @@ void loop() {
         digitalWrite(BLUE, HIGH);
         digitalWrite(RED, LOW);
         digitalWrite(GREEN, LOW);
-//        delay(3000);
-//        digitalWrite(BLUE, LOW);
         break;
 
       case GESTURE_LEFT:
@@ -79,8 +66,6 @@ void loop() {
         digitalWrite(GREEN, HIGH);
         digitalWrite(BLUE, LOW);
         digitalWrite(RED, LOW);
-//        delay(3000);
-//        digitalWrite(GREEN, LOW);
         break;
 
       case GESTURE_RIGHT:
@@ -88,15 +73,7 @@ void loop() {
         digitalWrite(RED, HIGH);
         digitalWrite(BLUE, HIGH);
         digitalWrite(GREEN, LOW);
-//        digitalWrite(BLUE, HIGH);
-//        delay(3000);
-//        digitalWrite(RED, LOW);
-//        digitalWrite(BLUE, LOW);
         break;
-//
-//      default:
-//        // ignore
-//        break;
     }
   }
 }
