@@ -13,7 +13,8 @@
 
 // MQTT client details:
 let broker = {
-    hostname: 'val898.cloud.shiftr.io',
+    // hostname: 'val898.cloud.shiftr.io',
+    hostname: 'public.cloud.shiftr.io',
     port: 443 //DO NOT CHANGE PORTS!
 };
 // MQTT client:
@@ -21,11 +22,14 @@ let client;
 // client credentials:
 let creds = {
     clientID: 'testing',
-    userName: 'val898',
-    password: 'JuKweI9pI9I6ShUH'
+    // userName: 'val898',
+    userName: 'public',
+    // password: 'JuKweI9pI9I6ShUH'
+    password: 'public'
 }
 // topic to subscribe to when you connect:
 let topic = 'vertversverre'; //same as Arduino code topic
+let topic1 = "randomNumber";
 
 // a pushbutton to send messages
 let sendButton;
@@ -68,18 +72,19 @@ function setup() {
 function draw() {
     background(50);
     // draw a circle whose brightness changes when a message is received:
-    fill(intensity);
+    fill(topic);
     circle(width/2, height/2, width/2);
 // subtract one from the brightness of the circle:
-    if (intensity > 0) {
-        intensity--;
-    }
+    // if (topic1 > 0) {
+    //     topic1--;
+    // }
 }
 
 // called when the client connects
 function onConnect() {
     localDiv.html('client is connected');
     client.subscribe(topic);
+    client.subscribe(topic1);
 }
 
 // called when the client loses its connection
@@ -103,11 +108,11 @@ function sendMqttMessage() {
     // if the client is connected to the MQTT broker:
     if (client.isConnected()) {
         // make a string with a random number form 0 to 15:
-        let msg = String(round(random(15)));
+        let msg = String(round(random(255)));
         // start an MQTT message:
         message = new Paho.MQTT.Message(msg);
         // choose the destination topic:
-        message.destinationName = topic;
+        message.destinationName = topic1;
         // send it:
         client.send(message);
         // print what you sent:
