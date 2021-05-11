@@ -1,0 +1,21 @@
+{
+  "name": "sockets_codingrainbow",
+  "version": "1.0.0",
+  "description": "sockets example on YouTube",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "sockets",
+    "p5.js",
+    "node"
+  ],
+  "author": "Vanessa Lam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.2"
+  }
+}
