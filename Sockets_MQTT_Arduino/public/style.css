@@ -1,0 +1,58 @@
+
+body {
+  background-color: lightgrey;
+  font-family: serif;
+}
+
+
+#notes{
+  width: 512px;
+}
+#serialport {
+  padding: 10px;
+  width: 300px;
+  background-color: grey;
+}
+
+section#gui{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-top: 5px;
+  border-bottom: 12px;
+
+}
+
+.guiElement{
+  background-color: orange;
+  height: 60px;
+  width: 400px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-bottom: 18px;
+  border-radius: 10px;
+}
+
+#potValue{
+  width: 200px;
+}
+#potValueDisplay{
+  width: 200px;
+  padding-left: 15px;
+}
+
+.active{
+  color:green;
+}
+
+.default{
+  color:red;
+}
+
+.notConnected{
+  background-color: #de2144; /* Green */
+}
+
+.connected{
+  background-color: #00ff00;
+}
