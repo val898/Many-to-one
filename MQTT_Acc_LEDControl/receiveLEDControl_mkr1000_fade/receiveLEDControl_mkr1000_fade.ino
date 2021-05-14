@@ -109,24 +109,27 @@ void loop() {
 
 void onMqttMessage(int messageSize) {
   // we received a message, print out the topic and contents
-  Serial.println("Received a message with topic '");
+  Serial.print("Received a message with topic '");
   Serial.print(mqttClient.messageTopic());
-  Serial.print("', length ");
-  Serial.print(messageSize);
-  Serial.println(" bytes:");
+  Serial.println("'");
+  Serial.print("length: ");
+  Serial.println(messageSize);
+  Serial.print("MQTT read: ");
+  Serial.println(mqttClient.read());
 
   // use the Stream interface to print the contents
   while (mqttClient.available()) {
     LED_STATE = mqttClient.read();
-    LED_STATE = LED_STATE;
+//    LED_STATE = LED_STATE;
 
 analogWrite(led, LED_STATE);
 
-LED_STATE = LED_STATE + fadeAmount;
+//LED_STATE = LED_STATE + fadeAmount;
 if (LED_STATE <= 0 || LED_STATE >= 255){
   fadeAmount = -fadeAmount;
 }
-    Serial.print(LED_STATE);
+    Serial.print("LED state: ");
+    Serial.println(LED_STATE);
   }
 
   Serial.println();
