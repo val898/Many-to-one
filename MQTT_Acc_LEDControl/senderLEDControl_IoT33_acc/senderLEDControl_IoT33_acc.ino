@@ -1,3 +1,5 @@
+#include <MapFloat.h> //https://github.com/radishlogic/MapFloat
+
 #include <ArduinoMqttClient.h>
 #if defined(ARDUINO_SAMD_MKRWIFI1010) || defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_AVR_UNO_WIFI_REV2)
 #include <WiFiNINA.h>
@@ -106,8 +108,8 @@ void loop() {
     }
 
     floatX = x;
-    mappedX = (int) map (floatX, -1.0, 4.0, 0, 255);
-//    mappedX = map (floatX, -4, 4, 0, 255);
+    mappedX = mapFloat(floatX, -1, 1, 0, 255);
+    //    mappedX = mapFloat (floatX, -4, 4, 0, 255);
     Serial.println(floatX);
     Serial.println(mappedX);
 
