@@ -9,8 +9,6 @@
 */
 
 #include <ArduinoMqttClient.h>
- 
-
 
 #if defined(ARDUINO_SAMD_MKRWIFI1010) || defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_AVR_UNO_WIFI_REV2)
   #include <WiFiNINA.h>
@@ -114,13 +112,21 @@ void onMqttMessage(int messageSize) {
   Serial.println("'");
   Serial.print("length: ");
   Serial.println(messageSize);
-  Serial.print("MQTT read: ");
-  Serial.println(mqttClient.read());
+//  Serial.print("MQTT read: ");
+//  Serial.println(mqttClient.read());
 
   // use the Stream interface to print the contents
+String temp = "";
   while (mqttClient.available()) {
-    LED_STATE = mqttClient.read();
-//    LED_STATE = LED_STATE;
+    char c = mqttClient.read();
+    temp += c;
+    }
+    Serial.println(temp);
+    
+//    LED_STATE = mqttClient.read();
+LED_STATE = temp.toInt();
+Serial.print("LED_STATE ");
+Serial.println(LED_STATE);
 
 analogWrite(led, LED_STATE);
 
@@ -128,9 +134,5 @@ analogWrite(led, LED_STATE);
 if (LED_STATE <= 0 || LED_STATE >= 255){
   fadeAmount = -fadeAmount;
 }
-    Serial.print("LED state: ");
-    Serial.println(LED_STATE);
-  }
-
   Serial.println();
 }
