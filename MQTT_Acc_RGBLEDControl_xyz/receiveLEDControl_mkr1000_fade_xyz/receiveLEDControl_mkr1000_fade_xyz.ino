@@ -38,15 +38,16 @@ const char topicX[]  = "accX";
 const char topicY[]  = "accY";
 const char topicZ[]  = "accZ";
 
-//int led = 6; //LED pin
 int LED_STATE = 0;
-//int fadeAmount = 5; //LED fade points
 
 const int redPin = 6;
 const int greenPin = 7;
 const int bluePin = 8;
 
+int redValue, greenValue, blueValue;
+
 void setup() {
+  //Remove this line if not plugged to computer!
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -109,9 +110,7 @@ void setup() {
   Serial.print(topicY);
   Serial.print('\t');
   Serial.println(topicZ);
-  //  Serial.println();
 
-  //   pinMode(led, OUTPUT);
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);  
@@ -125,13 +124,12 @@ void loop() {
 
 void onMqttMessage(int messageSize) {
   // we received a message, print out the topic and contents
+  String String_topic = mqttClient.messageTopic();
   Serial.print("Received a message with topic '");
-  Serial.print(mqttClient.messageTopic());
+  Serial.print(String_topic);
   Serial.println("'");
   Serial.print("length: ");
   Serial.println(messageSize);
-  //  Serial.print("MQTT read: ");
-  //  Serial.println(mqttClient.read());
 
   // use the Stream interface to print the contents
   String temp = "";
@@ -141,26 +139,21 @@ void onMqttMessage(int messageSize) {
   }
   Serial.println(temp);
 
-      LED_STATE = mqttClient.read();
   LED_STATE = temp.toInt();
-  //Serial.print("LED_STATE ");
-  //Serial.println(LED_STATE);
 
-  String String_topic = mqttClient.messageTopic();
-  
-
+//When specific topic is read, set the value of the specific LED color.
+ 
   if (String_topic == "accX") {
-    analogWrite(redPin, LED_STATE);
-//    LED_STATE.setPixelColor ("accX", "accY", "accZ");
+    redValue = LED_STATE;
+    analogWrite(redPin, redValue);
   }
 
-  //analogWrite(led, LED_STATE);
-  //LED_STATE.setPixelColor ("accX", "accY", "accZ");
-  //LED_STATE.show();
-
-  //LED_STATE = LED_STATE + fadeAmount;
-  //if (LED_STATE <= 0 || LED_STATE >= 255){
-  //  fadeAmount = -fadeAmount;
-}
-//  Serial.println();
-//}
+   if (String_topic == "accY") {
+    greenValue = LED_STATE;
+    analogWrite(greenPin, greenValue);
+  }
+  
+   if (String_topic == "accZ") {
+    blueValue = LED_STATE;
+    analogWrite(bluePin, blueValue);
+  }
