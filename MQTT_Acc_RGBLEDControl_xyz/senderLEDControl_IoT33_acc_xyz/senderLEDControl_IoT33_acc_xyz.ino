@@ -26,20 +26,18 @@ const char topicX[]  = "accX"; //same as js topic
 const char topicY[]  = "accY";
 const char topicZ[]  = "accZ";
 
-
 const long interval = 1000;
 unsigned long previousMillis = 0;
 
-
 float floatX;
 int mappedX;
-
 float floatY;
 int mappedY;
 float floatZ;
 int mappedZ;
 
 void setup() {
+  //Remove line if not plugged to a computer!
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -102,6 +100,7 @@ void loop() {
     // save the last time a message was sent
     previousMillis = currentMillis;
 
+    //-------ACCELEROMETER CODE STARTS HERE------
     float x, y, z;
 
     if (IMU.accelerationAvailable()) {
@@ -114,6 +113,7 @@ void loop() {
       Serial.println(z);
     }
 
+    // Map the data within the limits of 0 to 255 for the LED
     floatX = x;
     mappedX = mapFloat(floatX, -1, 1, 0, 255);
     Serial.print(mappedX);
@@ -128,18 +128,16 @@ void loop() {
     mappedZ = mapFloat(floatZ, -1, 1, 0, 255);
     Serial.println(mappedZ);
 
-
-    if (floatX) {
+    // If data is available send data to Shiftr
+    if (floatX && floatY && floatZ) {
       mqttClient.beginMessage(topicX);
       mqttClient.print(mappedX);
       mqttClient.endMessage();
-    }
-    if (floatY) {
+
       mqttClient.beginMessage(topicY);
       mqttClient.print(mappedY);
       mqttClient.endMessage();
-    }
-    if (floatZ) {
+
       mqttClient.beginMessage(topicZ);
       mqttClient.print(mappedZ);
       mqttClient.endMessage();
