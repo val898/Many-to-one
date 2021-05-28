@@ -11,11 +11,11 @@
 #include <ArduinoMqttClient.h>
 
 #if defined(ARDUINO_SAMD_MKRWIFI1010) || defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_AVR_UNO_WIFI_REV2)
-  #include <WiFiNINA.h>
+#include <WiFiNINA.h>
 #elif defined(ARDUINO_SAMD_MKR1000)
-  #include <WiFi101.h>
+#include <WiFi101.h>
 #elif defined(ARDUINO_ESP8266_ESP12)
-  #include <ESP8266WiFi.h>
+#include <ESP8266WiFi.h>
 #endif
 
 #include "arduino_secrets.h"
@@ -26,7 +26,7 @@ char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as k
 // To connect with SSL/TLS:
 // 1) Change WiFiClient to WiFiSSLClient.
 // 2) Change port value from 1883 to 8883.
-// 3) Change broker value to a server with a known SSL/TLS root certificate 
+// 3) Change broker value to a server with a known SSL/TLS root certificate
 //    flashed in the WiFi module.
 
 WiFiClient wifiClient;
@@ -113,7 +113,7 @@ void setup() {
 
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
-  pinMode(bluePin, OUTPUT);  
+  pinMode(bluePin, OUTPUT);
 }
 
 void loop() {
@@ -139,21 +139,22 @@ void onMqttMessage(int messageSize) {
   }
   Serial.println(temp);
 
+  //------RGB LED CODE STARTS HERE------
   LED_STATE = temp.toInt();
 
-//When specific topic is read, set the value of the specific LED color.
- 
+  //When specific topic is read, set the value of the specific LED color.
+
   if (String_topic == "accX") {
     redValue = LED_STATE;
     analogWrite(redPin, redValue);
   }
 
-   if (String_topic == "accY") {
+  if (String_topic == "accY") {
     greenValue = LED_STATE;
     analogWrite(greenPin, greenValue);
   }
-  
-   if (String_topic == "accZ") {
+
+  if (String_topic == "accZ") {
     blueValue = LED_STATE;
     analogWrite(bluePin, blueValue);
   }
