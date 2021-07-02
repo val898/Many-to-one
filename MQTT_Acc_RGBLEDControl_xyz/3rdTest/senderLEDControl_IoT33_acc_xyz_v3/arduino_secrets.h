@@ -1,5 +1,5 @@
-#define SECRET_SSID "" //input WiFi name
-#define SECRET_PASS "" //input Wifi password
+#define SECRET_SSID "My home :)"
+#define SECRET_PASS "Oiseau123"
 
     // if you leave these as PUBLIC -- view @ this: https://www.shiftr.io/try
 
