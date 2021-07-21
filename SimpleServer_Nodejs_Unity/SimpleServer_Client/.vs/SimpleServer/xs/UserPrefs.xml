@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{21735BEB-1D90-7B4E-20B6-880C3B840B35}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ServerTalker.cs">
+    <Files>
+      <File FileName="Assets/ServerTalker.cs" Line="19" Column="27" />
+      <File FileName="Assets/SimpleJSON.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SimpleServer" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="ServerTalker.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5e16d4be-81c2-4cc9-b3b3-acb5c4237c0f" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
