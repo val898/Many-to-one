@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{839BF82D-B6C3-9F91-282A-A4056B92E8EA}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Sketch.cs">
+    <Files>
+      <File FileName="Assets/Sketch.cs" Line="43" Column="58" />
+      <File FileName="Assets/CubeScript.cs" Line="21" Column="31" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HelloUnity" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Sketch.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="061c95d9-f4a2-4a97-8182-452706ef09b0" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
