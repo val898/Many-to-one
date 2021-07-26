@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{DA3CD93A-7F3A-D630-A6D7-05A187D351E3}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SocketDataClient.cs">
+    <Files>
+      <File FileName="Assets/SocketDataClient.cs" Line="24" Column="9" />
+      <File FileName="Assets/CubeManager.cs" Line="55" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HelloUnity(1)" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="SocketDataClient.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8fc9e823-60be-4929-8773-6418e75d300c" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
